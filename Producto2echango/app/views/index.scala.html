@@ -1,0 +1,29 @@
+@(productos: java.util.List[Producto])
+<html>
+	<head>
+	</head>
+	<body>
+	<table border=1>
+	<tr>
+		<td>Producto</td>
+		<td>Nombre del Producto</td>
+		<td>Precio del Producto</td>
+		<td>Fecha del Producto</td>		
+	</tr>
+	@for(producto <- productos){
+	<tr>
+		<td>@producto.id</td>
+		<td>@producto.name</td>
+		<td>@producto.precio</td>
+		<td>
+		@if(producto.fecha==null){
+		<em>-</em>		
+		}else{
+		@producto.fecha.format("yyyy-MM-dd")
+		}
+		</td>
+	</tr>
+	}
+	</table>
+	</body>
+</html>
